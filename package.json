@@ -1,0 +1,30 @@
+{
+  "name": "action-agent-scan",
+  "version": "0.0.1",
+  "description": "A GitHub action that helps detecting if a contributor is an AI agent.",
+  "keywords": [
+    "action",
+    "github",
+    "workflow",
+    "ai",
+    "agent"
+  ],
+  "license": "MIT",
+  "author": "Jens Rømer Hesselbjerg",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "vitest run",
+    "format": "prettier --write src/index.js",
+    "build": "ncc build src/index.js"
+  },
+  "dependencies": {
+    "@actions/core": "^3.0.0",
+    "@actions/github": "^9.0.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "0.38.4",
+    "prettier": "3.8.1",
+    "vitest": "4.0.18"
+  }
+}

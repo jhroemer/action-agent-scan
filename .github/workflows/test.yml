@@ -1,0 +1,23 @@
+name: Test Agent Scan
+
+on:
+  pull_request:
+
+  workflow_dispatch:
+    inputs:
+      pr-number:
+        description: "PR number to test against"
+        required: true
+        type: number
+
+jobs:
+  agent-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Agent Scan
+        uses: ./
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pr-number: ${{ github.event.pull_request.number || inputs.pr-number }}
