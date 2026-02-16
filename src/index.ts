@@ -18,16 +18,16 @@ try {
     per_page: 100,
   });
 
-  const createdAt = new Date(user.created_at);
-  const now = new Date();
-  const ageMs = now - createdAt;
-  const ageDays = Math.floor(ageMs / (1000 * 60 * 60 * 24));
-
+  // @ts-expect-error type issue
   const analysis = identifyReplicant(user, events);
   console.log(
     `User ${actor} has been on GitHub for ${analysis.profile.age} days`,
   );
   console.log(`The score is: ${analysis.score}`);
 } catch (error) {
-  core.setFailed(error.message);
+  if (error instanceof Error) {
+    core.setFailed(error.message);
+  } else {
+    core.setFailed("An unknown error occurred");
+  }
 }

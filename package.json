@@ -15,8 +15,8 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "vitest run",
-    "format": "prettier --write src/index.js",
-    "build": "ncc build src/index.js"
+    "format": "prettier --write src/index.ts",
+    "build": "tsc --noEmit && ncc build src/index.ts"
   },
   "dependencies": {
     "@actions/core": "^3.0.0",
@@ -24,8 +24,10 @@
     "voight-kampff-test": "0.0.1"
   },
   "devDependencies": {
+    "@types/node": "25.2.3",
     "@vercel/ncc": "0.38.4",
     "prettier": "3.8.1",
+    "typescript": "5.9.3",
     "vitest": "4.0.18"
   }
 }
