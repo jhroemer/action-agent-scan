@@ -35879,22 +35879,41 @@ function getOctokit(token, options, ...additionalPlugins) {
 
 /***/ }),
 
+/***/ 7177:
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __nccwpck_require__) => {
+
+/* harmony export */ __nccwpck_require__.d(__webpack_exports__, {
+/* harmony export */   D: () => (/* binding */ t)
+/* harmony export */ });
+const e={THRESHOLD_HUMAN:70,THRESHOLD_SUSPICIOUS:50,AGE_NEW_ACCOUNT:30,AGE_YOUNG_ACCOUNT:90,POINTS_NEW_ACCOUNT:20,POINTS_YOUNG_ACCOUNT:10,POINTS_NO_IDENTITY:15,FOLLOW_RATIO_FOLLOWING_MIN:50,FOLLOW_RATIO_FOLLOWERS_MAX:5,POINTS_FOLLOW_RATIO:15,POINTS_ZERO_FOLLOWERS:10,MIN_EVENTS_FOR_ANALYSIS:10,FORKS_EXTREME:8,FORKS_HIGH:5,POINTS_FORK_SURGE:30,POINTS_MULTIPLE_FORKS:20,HOURS_PER_DAY_INHUMAN:16,CONSECUTIVE_INHUMAN_DAYS_EXTREME:3,FREQUENT_MARATHON_DAYS:5,POINTS_NONSTOP_ACTIVITY:40,POINTS_FREQUENT_MARATHON:25,CONSECUTIVE_DAYS_STREAK:21,POINTS_CONTINUOUS_ACTIVITY:25,REPO_SPREAD_EXTREME:30,REPO_SPREAD_HIGH:20,POINTS_EXTREME_REPO_SPREAD_YOUNG:30,POINTS_WIDE_REPO_SPREAD_YOUNG:15,PRS_TODAY_EXTREME:15,PRS_WEEK_HIGH:20,POINTS_PR_BURST:20,POINTS_HIGH_PR_FREQUENCY:15,EXTERNAL_PRS_MIN:15,PERSONAL_REPOS_LOW:5,POINTS_PR_ONLY_CONTRIBUTOR:20,FOREIGN_RATIO_FULL:1,FOREIGN_RATIO_HIGH:.95,PERSONAL_REPOS_NONE:3,POINTS_NO_PERSONAL_ACTIVITY:30,POINTS_EXTERNAL_FOCUS:20,ZERO_REPOS_MIN_EVENTS:20,POINTS_ZERO_REPOS_ACTIVE:20,ACTIVITY_DENSITY_HIGH:8,ACTIVITY_DENSITY_EXTREME:15,POINTS_HIGH_ACTIVITY_DENSITY:15,POINTS_EXTREME_ACTIVITY_DENSITY:25};function t(t,n){let r=[],i=new Set([`PushEvent`,`PullRequestEvent`]),a=Date.now()-new Date(t.created_at).getTime(),o=Math.round(a/(1e3*60*60*24));o<e.AGE_NEW_ACCOUNT?r.push({label:`Recently created`,points:e.POINTS_NEW_ACCOUNT,detail:`Account is ${o} days old`}):o<e.AGE_YOUNG_ACCOUNT&&r.push({label:`Young account`,points:e.POINTS_YOUNG_ACCOUNT,detail:`Account is ${o} days old`});let s=!!(t.name||t.bio);s||r.push({label:`Minimal profile`,points:e.POINTS_NO_IDENTITY,detail:`No name or bio provided`});let c=n.filter(e=>{let n=e.repo?.name.split(`/`)[0]?.toLowerCase();return n&&n!==t.login.toLowerCase()}),l=t.public_repos===0&&c.length===n.length;l&&n.length>=e.ZERO_REPOS_MIN_EVENTS&&r.push({label:`Only active on other people's repos`,points:e.POINTS_ZERO_REPOS_ACTIVE+e.POINTS_NO_PERSONAL_ACTIVITY,detail:`No personal repos, all ${n.length} events are on repos they don't own`});let u=o<e.AGE_YOUNG_ACCOUNT;if(u&&n.length>=e.MIN_EVENTS_FOR_ANALYSIS){let t=n.filter(e=>e.type===`PushEvent`),i=n.filter(e=>e.type===`PullRequestEvent`);if(t.length>=e.MIN_EVENTS_FOR_ANALYSIS){let n=t.map(e=>new Date(e.created_at).getTime()),i=Math.min(...n),a=Math.max(...n),o=Math.max(1,Math.round((a-i)/(1e3*60*60*24))),s=t.length/o;s>=e.ACTIVITY_DENSITY_EXTREME?r.push({label:`Very high commit rate`,points:e.POINTS_EXTREME_ACTIVITY_DENSITY,detail:`${t.length} commits in ${o} day${o===1?``:`s`}`}):s>=e.ACTIVITY_DENSITY_HIGH&&r.push({label:`High commit rate`,points:e.POINTS_HIGH_ACTIVITY_DENSITY,detail:`${t.length} commits in ${o} day${o===1?``:`s`}`})}if(i.length>=e.MIN_EVENTS_FOR_ANALYSIS){let t=i.map(e=>new Date(e.created_at).getTime()),n=Math.min(...t),a=Math.max(...t),o=Math.max(1,Math.round((a-n)/(1e3*60*60*24))),s=i.length/o;s>=e.ACTIVITY_DENSITY_EXTREME/2?r.push({label:`Extremely high PR rate`,points:e.POINTS_EXTREME_ACTIVITY_DENSITY+10,detail:`${i.length} PRs in ${o} day${o===1?``:`s`}`}):s>=e.ACTIVITY_DENSITY_HIGH/2&&r.push({label:`High PR rate`,points:e.POINTS_HIGH_ACTIVITY_DENSITY+5,detail:`${i.length} PRs in ${o} day${o===1?``:`s`}`})}}if(t.following>e.FOLLOW_RATIO_FOLLOWING_MIN&&t.followers<e.FOLLOW_RATIO_FOLLOWERS_MAX?r.push({label:`Unusual follow ratio`,points:e.POINTS_FOLLOW_RATIO,detail:`Following ${t.following} but only ${t.followers} followers`}):t.followers===0&&t.following>0&&r.push({label:`No followers yet`,points:e.POINTS_ZERO_FOLLOWERS,detail:`Account has no followers`}),n.length>=e.MIN_EVENTS_FOR_ANALYSIS){let a=n.map(e=>new Date(e.created_at)),o=t.login.toLowerCase(),s=n.filter(e=>i.has(e.type)||e.type===`PullRequestReviewEvent`||e.type===`PullRequestReviewCommentEvent`),d=n.filter(e=>e.type===`ForkEvent`);d.length>=e.FORKS_EXTREME?r.push({label:`Many recent forks`,points:e.POINTS_FORK_SURGE,detail:`${d.length} repos forked recently`}):d.length>=e.FORKS_HIGH&&r.push({label:`Multiple forks`,points:e.POINTS_MULTIPLE_FORKS,detail:`${d.length} repos forked recently`});let f=new Map;s.forEach(e=>{let t=new Date(e.created_at),n=t.toISOString().slice(0,10);f.has(n)||f.set(n,[]),f.get(n).push(t)});let p=[];if(f.forEach((t,n)=>{new Set(t.map(e=>e.getUTCHours())).size>=e.HOURS_PER_DAY_INHUMAN&&p.push(n)}),p.length>=e.CONSECUTIVE_INHUMAN_DAYS_EXTREME){p.sort();let t=1,n=1;for(let e=1;e<p.length;e++){let r=new Date(p[e-1]);(new Date(p[e]).getTime()-r.getTime())/(1e3*60*60*24)==1?(t++,n=Math.max(n,t)):t=1}n>=e.CONSECUTIVE_INHUMAN_DAYS_EXTREME?r.push({label:`Extended daily coding`,points:e.POINTS_NONSTOP_ACTIVITY,detail:`${n} days in a row with ${e.HOURS_PER_DAY_INHUMAN}+ hours of coding`}):p.length>=e.FREQUENT_MARATHON_DAYS&&r.push({label:`Frequent long coding days`,points:e.POINTS_FREQUENT_MARATHON,detail:`${p.length} days with ${e.HOURS_PER_DAY_INHUMAN}+ hours of coding each`})}let m=new Set;a.forEach(e=>m.add(e.toISOString().slice(0,10)));let h=[...m].sort(),g=1,_=1;for(let e=1;e<h.length;e++){let t=new Date(h[e-1]);(new Date(h[e]).getTime()-t.getTime())/(1e3*60*60*24)==1?(_++,g=Math.max(g,_)):_=1}if(g>=e.CONSECUTIVE_DAYS_STREAK&&r.push({label:`Long activity streak`,points:e.POINTS_CONTINUOUS_ACTIVITY,detail:`${g} days in a row with activity`}),u){let t=new Set(n.map(e=>e.repo?.name).filter(e=>e?e.split(`/`)[0]?.toLowerCase()!==o:!1));t.size>=e.REPO_SPREAD_EXTREME?r.push({label:`Very wide contribution spread`,points:e.POINTS_EXTREME_REPO_SPREAD_YOUNG,detail:`Active in ${t.size} repos they don't own`}):t.size>=e.REPO_SPREAD_HIGH&&r.push({label:`Wide contribution spread`,points:e.POINTS_WIDE_REPO_SPREAD_YOUNG,detail:`Active in ${t.size} repos they don't own`})}let v=n.filter(e=>e.type===`PullRequestEvent`).filter(e=>{let t=e.repo?.name.split(`/`)[0]?.toLowerCase();return t&&t!==o}),y=Date.now(),b=y-10080*60*1e3,x=y-1440*60*1e3,S=v.filter(e=>new Date(e.created_at).getTime()>b),C=v.filter(e=>new Date(e.created_at).getTime()>x);if(C.length>=e.PRS_TODAY_EXTREME?r.push({label:`High PR volume today`,points:e.POINTS_PR_BURST,detail:`${C.length} PRs to other repos in the last 24 hours`}):S.length>=e.PRS_WEEK_HIGH&&r.push({label:`High PR volume this week`,points:e.POINTS_HIGH_PR_FREQUENCY,detail:`${S.length} PRs to other repos this week`}),v.length>=e.EXTERNAL_PRS_MIN&&t.public_repos<e.PERSONAL_REPOS_LOW){let n=`${v.length} PRs to other repos, but only ${t.public_repos} of their own`;t.public_repos===0&&(n=`${v.length} PRs to other repos, none of their own`),r.push({label:`Primarily external contributions`,points:e.POINTS_PR_ONLY_CONTRIBUTOR,detail:n})}let w=c.length/n.length;!l&&w>=e.FOREIGN_RATIO_HIGH&&t.public_repos<e.PERSONAL_REPOS_LOW&&r.push({label:`Mostly external activity`,points:e.POINTS_EXTERNAL_FOCUS,detail:`${Math.round(w*100)}% of activity on other people's repos`})}let d=r.reduce((e,t)=>e+=t.points,0),f=Math.max(0,100-d),p=`likely_bot`;return f>=e.THRESHOLD_HUMAN?p=`human`:f>=e.THRESHOLD_SUSPICIOUS&&(p=`suspicious`),{score:f,classification:p,flags:r,profile:{age:o,followers:t.followers,repos:t.public_repos,hasIdentity:s}}}
+
+/***/ }),
+
 /***/ 9722:
 /***/ ((__webpack_module__, __unused_webpack___webpack_exports__, __nccwpck_require__) => {
 
 __nccwpck_require__.a(__webpack_module__, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(6257);
 /* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(6474);
+/* harmony import */ var voight_kampff_test__WEBPACK_IMPORTED_MODULE_2__ = __nccwpck_require__(7177);
+
 
 
 
 try {
   const token = _actions_core__WEBPACK_IMPORTED_MODULE_0__/* .getInput */ .V4("github-token");
-  const owner = _actions_github__WEBPACK_IMPORTED_MODULE_1__/* .context */ ._.repo.owner;
+  const actor = _actions_github__WEBPACK_IMPORTED_MODULE_1__/* .context */ ._.actor;
 
   const octokit = _actions_github__WEBPACK_IMPORTED_MODULE_1__/* .getOctokit */ .Q(token);
+
   const { data: user } = await octokit.rest.users.getByUsername({
-    username: owner,
+    username: actor,
+  });
+
+  // TODO: needs error handling
+  const { data: events } = await octokit.rest.activity.listPublicEventsForUser({
+    username: actor,
+    per_page: 100,
   });
 
   const createdAt = new Date(user.created_at);
@@ -35902,7 +35921,11 @@ try {
   const ageMs = now - createdAt;
   const ageDays = Math.floor(ageMs / (1000 * 60 * 60 * 24));
 
-  console.log(`User ${owner} has been on GitHub for ${ageDays} days`);
+  const analysis = (0,voight_kampff_test__WEBPACK_IMPORTED_MODULE_2__/* .identifyReplicant */ .D)(user, events);
+  console.log(
+    `User ${actor} has been on GitHub for ${analysis.profile.age} days`,
+  );
+  console.log(`The score is: ${analysis.score}`);
 } catch (error) {
   _actions_core__WEBPACK_IMPORTED_MODULE_0__/* .setFailed */ .C1(error.message);
 }
