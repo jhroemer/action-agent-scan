@@ -13,6 +13,7 @@ name: Agent Scan
 
 on:
   pull_request:
+    types: [opened]
 
 jobs:
   agent_scan:

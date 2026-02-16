@@ -2,6 +2,7 @@ name: Test Agent Scan
 
 on:
   pull_request:
+    types: [opened]
 
   workflow_dispatch:
     inputs:
