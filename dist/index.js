@@ -28434,47 +28434,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ 9407:
-/***/ ((module, __unused_webpack___webpack_exports__, __nccwpck_require__) => {
-
-__nccwpck_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(6257);
-/* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(6474);
-/* harmony import */ var voight_kampff_test__WEBPACK_IMPORTED_MODULE_2__ = __nccwpck_require__(7177);
-
-
-
-try {
-    const token = _actions_core__WEBPACK_IMPORTED_MODULE_0__/* .getInput */ .V4("github-token");
-    const actor = _actions_github__WEBPACK_IMPORTED_MODULE_1__/* .context */ ._.actor;
-    const octokit = _actions_github__WEBPACK_IMPORTED_MODULE_1__/* .getOctokit */ .Q(token);
-    const { data: user } = await octokit.rest.users.getByUsername({
-        username: actor,
-    });
-    // TODO: needs error handling
-    const { data: events } = await octokit.rest.activity.listPublicEventsForUser({
-        username: actor,
-        per_page: 100,
-    });
-    // @ts-expect-error type issue
-    const analysis = (0,voight_kampff_test__WEBPACK_IMPORTED_MODULE_2__/* .identifyReplicant */ .D)(user, events);
-    console.log(`User ${actor} has been on GitHub for ${analysis.profile.age} days`);
-    console.log(`The score is: ${analysis.score}`);
-}
-catch (error) {
-    if (error instanceof Error) {
-        _actions_core__WEBPACK_IMPORTED_MODULE_0__/* .setFailed */ .C1(error.message);
-    }
-    else {
-        _actions_core__WEBPACK_IMPORTED_MODULE_0__/* .setFailed */ .C1("An unknown error occurred");
-    }
-}
-
-__webpack_async_result__();
-} catch(e) { __webpack_async_result__(e); } }, 1);
-
-/***/ }),
-
 /***/ 2613:
 /***/ ((module) => {
 
@@ -28486,13 +28445,6 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("assert");
 /***/ ((module) => {
 
 module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("events");
-
-/***/ }),
-
-/***/ 9896:
-/***/ ((module) => {
-
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("fs");
 
 /***/ }),
 
@@ -28654,13 +28606,6 @@ module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:worker_
 /***/ ((module) => {
 
 module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("node:zlib");
-
-/***/ }),
-
-/***/ 857:
-/***/ ((module) => {
-
-module.exports = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("os");
 
 /***/ }),
 
@@ -28860,22 +28805,50 @@ module.exports.xL = safeParse
 __webpack_unused_export__ = defaultContentType
 
 
-/***/ }),
+/***/ })
 
-/***/ 6257:
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __nccwpck_require__) => {
+/******/ });
+/************************************************************************/
+/******/ // The module cache
+/******/ var __webpack_module_cache__ = {};
+/******/ 
+/******/ // The require function
+/******/ function __nccwpck_require__(moduleId) {
+/******/ 	// Check if module is in cache
+/******/ 	var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 	if (cachedModule !== undefined) {
+/******/ 		return cachedModule.exports;
+/******/ 	}
+/******/ 	// Create a new module (and put it into the cache)
+/******/ 	var module = __webpack_module_cache__[moduleId] = {
+/******/ 		// no module.id needed
+/******/ 		// no module.loaded needed
+/******/ 		exports: {}
+/******/ 	};
+/******/ 
+/******/ 	// Execute the module function
+/******/ 	var threw = true;
+/******/ 	try {
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nccwpck_require__);
+/******/ 		threw = false;
+/******/ 	} finally {
+/******/ 		if(threw) delete __webpack_module_cache__[moduleId];
+/******/ 	}
+/******/ 
+/******/ 	// Return the exports of the module
+/******/ 	return module.exports;
+/******/ }
+/******/ 
+/************************************************************************/
+/******/ /* webpack/runtime/compat */
+/******/ 
+/******/ if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = new URL('.', import.meta.url).pathname.slice(import.meta.url.match(/^file:\/\/\/\w:/) ? 1 : 0, -1) + "/";
+/******/ 
+/************************************************************************/
+var __webpack_exports__ = {};
 
-
-// EXPORTS
-__nccwpck_require__.d(__webpack_exports__, {
-  V4: () => (/* binding */ getInput),
-  C1: () => (/* binding */ setFailed)
-});
-
-// UNUSED EXPORTS: ExitCode, addPath, debug, endGroup, error, exportVariable, getBooleanInput, getIDToken, getMultilineInput, getState, group, info, isDebug, markdownSummary, notice, platform, saveState, setCommandEcho, setOutput, setSecret, startGroup, summary, toPlatformPath, toPosixPath, toWin32Path, warning
-
-// EXTERNAL MODULE: external "os"
-var external_os_ = __nccwpck_require__(857);
+;// CONCATENATED MODULE: external "os"
+const external_os_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("os");
 ;// CONCATENATED MODULE: ./node_modules/@actions/core/lib/utils.js
 // We use any as a valid input type
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -28950,7 +28923,7 @@ function utils_toCommandProperties(annotationProperties) {
  */
 function command_issueCommand(command, properties, message) {
     const cmd = new Command(command, properties, message);
-    process.stdout.write(cmd.toString() + external_os_.EOL);
+    process.stdout.write(cmd.toString() + external_os_namespaceObject.EOL);
 }
 function command_issue(name, message = '') {
     command_issueCommand(name, {}, message);
@@ -29006,8 +28979,8 @@ function escapeProperty(s) {
 //# sourceMappingURL=command.js.map
 ;// CONCATENATED MODULE: external "crypto"
 const external_crypto_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("crypto");
-// EXTERNAL MODULE: external "fs"
-var external_fs_ = __nccwpck_require__(9896);
+;// CONCATENATED MODULE: external "fs"
+const external_fs_namespaceObject = __WEBPACK_EXTERNAL_createRequire(import.meta.url)("fs");
 ;// CONCATENATED MODULE: ./node_modules/@actions/core/lib/file-command.js
 // For internal use, subject to change.
 // We use any as a valid input type
@@ -30003,7 +29976,7 @@ var summary_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _
 };
 
 
-const { access, appendFile, writeFile } = external_fs_.promises;
+const { access, appendFile, writeFile } = external_fs_namespaceObject.promises;
 const SUMMARY_ENV_VAR = 'GITHUB_STEP_SUMMARY';
 const SUMMARY_DOCS_URL = 'https://docs.github.com/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary';
 class Summary {
@@ -30026,7 +29999,7 @@ class Summary {
                 throw new Error(`Unable to find environment variable for $${SUMMARY_ENV_VAR}. Check if your runtime environment supports job summaries.`);
             }
             try {
-                yield access(pathFromEnv, external_fs_.constants.R_OK | external_fs_.constants.W_OK);
+                yield access(pathFromEnv, external_fs_namespaceObject.constants.R_OK | external_fs_namespaceObject.constants.W_OK);
             }
             catch (_a) {
                 throw new Error(`Unable to access summary file: '${pathFromEnv}'. Check if the file has correct read/write permissions.`);
@@ -30122,7 +30095,7 @@ class Summary {
      * @returns {Summary} summary instance
      */
     addEOL() {
-        return this.addRaw(external_os_.EOL);
+        return this.addRaw(external_os_namespaceObject.EOL);
     }
     /**
      * Adds an HTML codeblock to the summary buffer
@@ -30326,7 +30299,7 @@ var io_util_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _
 };
 
 
-const { chmod, copyFile, lstat, mkdir, open: io_util_open, readdir, rename, rm, rmdir, stat, symlink, unlink } = external_fs_.promises;
+const { chmod, copyFile, lstat, mkdir, open: io_util_open, readdir, rename, rm, rmdir, stat, symlink, unlink } = external_fs_namespaceObject.promises;
 // export const {open} = 'fs'
 const IS_WINDOWS = process.platform === 'win32';
 /**
@@ -30353,7 +30326,7 @@ function readlink(fsPath) {
 }
 // See https://github.com/nodejs/node/blob/d0153aee367422d0858105abec186da4dff0a0c5/deps/uv/include/uv/win.h#L691
 const UV_FS_O_EXLOCK = 0x10000000;
-const READONLY = external_fs_.constants.O_RDONLY;
+const READONLY = external_fs_namespaceObject.constants.O_RDONLY;
 function exists(fsPath) {
     return io_util_awaiter(this, void 0, void 0, function* () {
         try {
@@ -30846,13 +30819,13 @@ class ToolRunner extends external_events_.EventEmitter {
     _processLineBuffer(data, strBuffer, onLine) {
         try {
             let s = strBuffer + data.toString();
-            let n = s.indexOf(external_os_.EOL);
+            let n = s.indexOf(external_os_namespaceObject.EOL);
             while (n > -1) {
                 const line = s.substring(0, n);
                 onLine(line);
                 // the rest of the string ...
-                s = s.substring(n + external_os_.EOL.length);
-                n = s.indexOf(external_os_.EOL);
+                s = s.substring(n + external_os_namespaceObject.EOL.length);
+                n = s.indexOf(external_os_namespaceObject.EOL);
             }
             return s;
         }
@@ -31143,7 +31116,7 @@ class ToolRunner extends external_events_.EventEmitter {
                 }
                 const optionsNonNull = this._cloneExecOptions(this.options);
                 if (!optionsNonNull.silent && optionsNonNull.outStream) {
-                    optionsNonNull.outStream.write(this._getCommandString(optionsNonNull) + external_os_.EOL);
+                    optionsNonNull.outStream.write(this._getCommandString(optionsNonNull) + external_os_namespaceObject.EOL);
                 }
                 const state = new ExecState(optionsNonNull, this.toolPath);
                 state.on('debug', (message) => {
@@ -31482,8 +31455,8 @@ const getLinuxInfo = () => platform_awaiter(void 0, void 0, void 0, function* ()
         version
     };
 });
-const platform = external_os_.platform();
-const arch = external_os_.arch();
+const platform = external_os_namespaceObject.platform();
+const arch = external_os_namespaceObject.arch();
 const isWindows = platform === 'win32';
 const isMacOS = platform === 'darwin';
 const isLinux = platform === 'linux';
@@ -31732,7 +31705,7 @@ function notice(message, properties = {}) {
  * @param message info message
  */
 function info(message) {
-    process.stdout.write(message + os.EOL);
+    process.stdout.write(message + external_os_namespaceObject.EOL);
 }
 /**
  * Begin an output group.
@@ -31819,23 +31792,6 @@ function getIDToken(aud) {
  */
 
 //# sourceMappingURL=core.js.map
-
-/***/ }),
-
-/***/ 6474:
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __nccwpck_require__) => {
-
-
-// EXPORTS
-__nccwpck_require__.d(__webpack_exports__, {
-  _: () => (/* binding */ github_context),
-  Q: () => (/* binding */ getOctokit)
-});
-
-// EXTERNAL MODULE: external "fs"
-var external_fs_ = __nccwpck_require__(9896);
-// EXTERNAL MODULE: external "os"
-var external_os_ = __nccwpck_require__(857);
 ;// CONCATENATED MODULE: ./node_modules/@actions/github/lib/context.js
 
 
@@ -31847,12 +31803,12 @@ class Context {
         var _a, _b, _c;
         this.payload = {};
         if (process.env.GITHUB_EVENT_PATH) {
-            if ((0,external_fs_.existsSync)(process.env.GITHUB_EVENT_PATH)) {
-                this.payload = JSON.parse((0,external_fs_.readFileSync)(process.env.GITHUB_EVENT_PATH, { encoding: 'utf8' }));
+            if ((0,external_fs_namespaceObject.existsSync)(process.env.GITHUB_EVENT_PATH)) {
+                this.payload = JSON.parse((0,external_fs_namespaceObject.readFileSync)(process.env.GITHUB_EVENT_PATH, { encoding: 'utf8' }));
             }
             else {
                 const path = process.env.GITHUB_EVENT_PATH;
-                process.stdout.write(`GITHUB_EVENT_PATH ${path} does not exist${external_os_.EOL}`);
+                process.stdout.write(`GITHUB_EVENT_PATH ${path} does not exist${external_os_namespaceObject.EOL}`);
             }
         }
         this.eventName = process.env.GITHUB_EVENT_NAME;
@@ -31891,10 +31847,8 @@ class Context {
 //# sourceMappingURL=context.js.map
 // EXTERNAL MODULE: ./node_modules/@actions/github/node_modules/@actions/http-client/lib/index.js
 var lib = __nccwpck_require__(9659);
-// EXTERNAL MODULE: ./node_modules/undici/index.js
-var undici = __nccwpck_require__(6752);
 ;// CONCATENATED MODULE: ./node_modules/@actions/github/lib/internal/utils.js
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+var utils_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -31924,7 +31878,7 @@ function getProxyAgentDispatcher(destinationUrl) {
 }
 function getProxyFetch(destinationUrl) {
     const httpDispatcher = getProxyAgentDispatcher(destinationUrl);
-    const proxyFetch = (url, opts) => __awaiter(this, void 0, void 0, function* () {
+    const proxyFetch = (url, opts) => utils_awaiter(this, void 0, void 0, function* () {
         return (0,undici.fetch)(url, Object.assign(Object.assign({}, opts), { dispatcher: httpDispatcher }));
     });
     return proxyFetch;
@@ -32115,7 +32069,7 @@ var DEFAULTS = {
 };
 
 // pkg/dist-src/util/lowercase-keys.js
-function lowercaseKeys(object) {
+function dist_bundle_lowercaseKeys(object) {
   if (!object) {
     return {};
   }
@@ -32167,7 +32121,7 @@ function merge(defaults, route, options) {
   } else {
     options = Object.assign({}, route);
   }
-  options.headers = lowercaseKeys(options.headers);
+  options.headers = dist_bundle_lowercaseKeys(options.headers);
   removeUndefinedProperties(options);
   removeUndefinedProperties(options.headers);
   const mergedOptions = mergeDeep(defaults || {}, options);
@@ -35917,147 +35871,52 @@ function getOctokit(token, options, ...additionalPlugins) {
     return new GitHubWithPlugins(getOctokitOptions(token, options));
 }
 //# sourceMappingURL=github.js.map
-
-/***/ }),
-
-/***/ 7177:
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __nccwpck_require__) => {
-
-/* harmony export */ __nccwpck_require__.d(__webpack_exports__, {
-/* harmony export */   D: () => (/* binding */ t)
-/* harmony export */ });
+;// CONCATENATED MODULE: ./node_modules/voight-kampff-test/dist/index.mjs
 const e={THRESHOLD_HUMAN:70,THRESHOLD_SUSPICIOUS:50,AGE_NEW_ACCOUNT:30,AGE_YOUNG_ACCOUNT:90,POINTS_NEW_ACCOUNT:20,POINTS_YOUNG_ACCOUNT:10,POINTS_NO_IDENTITY:15,FOLLOW_RATIO_FOLLOWING_MIN:50,FOLLOW_RATIO_FOLLOWERS_MAX:5,POINTS_FOLLOW_RATIO:15,POINTS_ZERO_FOLLOWERS:10,MIN_EVENTS_FOR_ANALYSIS:10,FORKS_EXTREME:8,FORKS_HIGH:5,POINTS_FORK_SURGE:30,POINTS_MULTIPLE_FORKS:20,HOURS_PER_DAY_INHUMAN:16,CONSECUTIVE_INHUMAN_DAYS_EXTREME:3,FREQUENT_MARATHON_DAYS:5,POINTS_NONSTOP_ACTIVITY:40,POINTS_FREQUENT_MARATHON:25,CONSECUTIVE_DAYS_STREAK:21,POINTS_CONTINUOUS_ACTIVITY:25,REPO_SPREAD_EXTREME:30,REPO_SPREAD_HIGH:20,POINTS_EXTREME_REPO_SPREAD_YOUNG:30,POINTS_WIDE_REPO_SPREAD_YOUNG:15,PRS_TODAY_EXTREME:15,PRS_WEEK_HIGH:20,POINTS_PR_BURST:20,POINTS_HIGH_PR_FREQUENCY:15,EXTERNAL_PRS_MIN:15,PERSONAL_REPOS_LOW:5,POINTS_PR_ONLY_CONTRIBUTOR:20,FOREIGN_RATIO_FULL:1,FOREIGN_RATIO_HIGH:.95,PERSONAL_REPOS_NONE:3,POINTS_NO_PERSONAL_ACTIVITY:30,POINTS_EXTERNAL_FOCUS:20,ZERO_REPOS_MIN_EVENTS:20,POINTS_ZERO_REPOS_ACTIVE:20,ACTIVITY_DENSITY_HIGH:8,ACTIVITY_DENSITY_EXTREME:15,POINTS_HIGH_ACTIVITY_DENSITY:15,POINTS_EXTREME_ACTIVITY_DENSITY:25};function t(t,n){let r=[],i=new Set([`PushEvent`,`PullRequestEvent`]),a=Date.now()-new Date(t.created_at).getTime(),o=Math.round(a/(1e3*60*60*24));o<e.AGE_NEW_ACCOUNT?r.push({label:`Recently created`,points:e.POINTS_NEW_ACCOUNT,detail:`Account is ${o} days old`}):o<e.AGE_YOUNG_ACCOUNT&&r.push({label:`Young account`,points:e.POINTS_YOUNG_ACCOUNT,detail:`Account is ${o} days old`});let s=!!(t.name||t.bio);s||r.push({label:`Minimal profile`,points:e.POINTS_NO_IDENTITY,detail:`No name or bio provided`});let c=n.filter(e=>{let n=e.repo?.name.split(`/`)[0]?.toLowerCase();return n&&n!==t.login.toLowerCase()}),l=t.public_repos===0&&c.length===n.length;l&&n.length>=e.ZERO_REPOS_MIN_EVENTS&&r.push({label:`Only active on other people's repos`,points:e.POINTS_ZERO_REPOS_ACTIVE+e.POINTS_NO_PERSONAL_ACTIVITY,detail:`No personal repos, all ${n.length} events are on repos they don't own`});let u=o<e.AGE_YOUNG_ACCOUNT;if(u&&n.length>=e.MIN_EVENTS_FOR_ANALYSIS){let t=n.filter(e=>e.type===`PushEvent`),i=n.filter(e=>e.type===`PullRequestEvent`);if(t.length>=e.MIN_EVENTS_FOR_ANALYSIS){let n=t.map(e=>new Date(e.created_at).getTime()),i=Math.min(...n),a=Math.max(...n),o=Math.max(1,Math.round((a-i)/(1e3*60*60*24))),s=t.length/o;s>=e.ACTIVITY_DENSITY_EXTREME?r.push({label:`Very high commit rate`,points:e.POINTS_EXTREME_ACTIVITY_DENSITY,detail:`${t.length} commits in ${o} day${o===1?``:`s`}`}):s>=e.ACTIVITY_DENSITY_HIGH&&r.push({label:`High commit rate`,points:e.POINTS_HIGH_ACTIVITY_DENSITY,detail:`${t.length} commits in ${o} day${o===1?``:`s`}`})}if(i.length>=e.MIN_EVENTS_FOR_ANALYSIS){let t=i.map(e=>new Date(e.created_at).getTime()),n=Math.min(...t),a=Math.max(...t),o=Math.max(1,Math.round((a-n)/(1e3*60*60*24))),s=i.length/o;s>=e.ACTIVITY_DENSITY_EXTREME/2?r.push({label:`Extremely high PR rate`,points:e.POINTS_EXTREME_ACTIVITY_DENSITY+10,detail:`${i.length} PRs in ${o} day${o===1?``:`s`}`}):s>=e.ACTIVITY_DENSITY_HIGH/2&&r.push({label:`High PR rate`,points:e.POINTS_HIGH_ACTIVITY_DENSITY+5,detail:`${i.length} PRs in ${o} day${o===1?``:`s`}`})}}if(t.following>e.FOLLOW_RATIO_FOLLOWING_MIN&&t.followers<e.FOLLOW_RATIO_FOLLOWERS_MAX?r.push({label:`Unusual follow ratio`,points:e.POINTS_FOLLOW_RATIO,detail:`Following ${t.following} but only ${t.followers} followers`}):t.followers===0&&t.following>0&&r.push({label:`No followers yet`,points:e.POINTS_ZERO_FOLLOWERS,detail:`Account has no followers`}),n.length>=e.MIN_EVENTS_FOR_ANALYSIS){let a=n.map(e=>new Date(e.created_at)),o=t.login.toLowerCase(),s=n.filter(e=>i.has(e.type)||e.type===`PullRequestReviewEvent`||e.type===`PullRequestReviewCommentEvent`),d=n.filter(e=>e.type===`ForkEvent`);d.length>=e.FORKS_EXTREME?r.push({label:`Many recent forks`,points:e.POINTS_FORK_SURGE,detail:`${d.length} repos forked recently`}):d.length>=e.FORKS_HIGH&&r.push({label:`Multiple forks`,points:e.POINTS_MULTIPLE_FORKS,detail:`${d.length} repos forked recently`});let f=new Map;s.forEach(e=>{let t=new Date(e.created_at),n=t.toISOString().slice(0,10);f.has(n)||f.set(n,[]),f.get(n).push(t)});let p=[];if(f.forEach((t,n)=>{new Set(t.map(e=>e.getUTCHours())).size>=e.HOURS_PER_DAY_INHUMAN&&p.push(n)}),p.length>=e.CONSECUTIVE_INHUMAN_DAYS_EXTREME){p.sort();let t=1,n=1;for(let e=1;e<p.length;e++){let r=new Date(p[e-1]);(new Date(p[e]).getTime()-r.getTime())/(1e3*60*60*24)==1?(t++,n=Math.max(n,t)):t=1}n>=e.CONSECUTIVE_INHUMAN_DAYS_EXTREME?r.push({label:`Extended daily coding`,points:e.POINTS_NONSTOP_ACTIVITY,detail:`${n} days in a row with ${e.HOURS_PER_DAY_INHUMAN}+ hours of coding`}):p.length>=e.FREQUENT_MARATHON_DAYS&&r.push({label:`Frequent long coding days`,points:e.POINTS_FREQUENT_MARATHON,detail:`${p.length} days with ${e.HOURS_PER_DAY_INHUMAN}+ hours of coding each`})}let m=new Set;a.forEach(e=>m.add(e.toISOString().slice(0,10)));let h=[...m].sort(),g=1,_=1;for(let e=1;e<h.length;e++){let t=new Date(h[e-1]);(new Date(h[e]).getTime()-t.getTime())/(1e3*60*60*24)==1?(_++,g=Math.max(g,_)):_=1}if(g>=e.CONSECUTIVE_DAYS_STREAK&&r.push({label:`Long activity streak`,points:e.POINTS_CONTINUOUS_ACTIVITY,detail:`${g} days in a row with activity`}),u){let t=new Set(n.map(e=>e.repo?.name).filter(e=>e?e.split(`/`)[0]?.toLowerCase()!==o:!1));t.size>=e.REPO_SPREAD_EXTREME?r.push({label:`Very wide contribution spread`,points:e.POINTS_EXTREME_REPO_SPREAD_YOUNG,detail:`Active in ${t.size} repos they don't own`}):t.size>=e.REPO_SPREAD_HIGH&&r.push({label:`Wide contribution spread`,points:e.POINTS_WIDE_REPO_SPREAD_YOUNG,detail:`Active in ${t.size} repos they don't own`})}let v=n.filter(e=>e.type===`PullRequestEvent`).filter(e=>{let t=e.repo?.name.split(`/`)[0]?.toLowerCase();return t&&t!==o}),y=Date.now(),b=y-10080*60*1e3,x=y-1440*60*1e3,S=v.filter(e=>new Date(e.created_at).getTime()>b),C=v.filter(e=>new Date(e.created_at).getTime()>x);if(C.length>=e.PRS_TODAY_EXTREME?r.push({label:`High PR volume today`,points:e.POINTS_PR_BURST,detail:`${C.length} PRs to other repos in the last 24 hours`}):S.length>=e.PRS_WEEK_HIGH&&r.push({label:`High PR volume this week`,points:e.POINTS_HIGH_PR_FREQUENCY,detail:`${S.length} PRs to other repos this week`}),v.length>=e.EXTERNAL_PRS_MIN&&t.public_repos<e.PERSONAL_REPOS_LOW){let n=`${v.length} PRs to other repos, but only ${t.public_repos} of their own`;t.public_repos===0&&(n=`${v.length} PRs to other repos, none of their own`),r.push({label:`Primarily external contributions`,points:e.POINTS_PR_ONLY_CONTRIBUTOR,detail:n})}let w=c.length/n.length;!l&&w>=e.FOREIGN_RATIO_HIGH&&t.public_repos<e.PERSONAL_REPOS_LOW&&r.push({label:`Mostly external activity`,points:e.POINTS_EXTERNAL_FOCUS,detail:`${Math.round(w*100)}% of activity on other people's repos`})}let d=r.reduce((e,t)=>e+=t.points,0),f=Math.max(0,100-d),p=`likely_bot`;return f>=e.THRESHOLD_HUMAN?p=`human`:f>=e.THRESHOLD_SUSPICIOUS&&(p=`suspicious`),{score:f,classification:p,flags:r,profile:{age:o,followers:t.followers,repos:t.public_repos,hasIdentity:s}}}
+;// CONCATENATED MODULE: ./src/index.ts
 
-/***/ })
 
-/******/ });
-/************************************************************************/
-/******/ // The module cache
-/******/ var __webpack_module_cache__ = {};
-/******/ 
-/******/ // The require function
-/******/ function __nccwpck_require__(moduleId) {
-/******/ 	// Check if module is in cache
-/******/ 	var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 	if (cachedModule !== undefined) {
-/******/ 		return cachedModule.exports;
-/******/ 	}
-/******/ 	// Create a new module (and put it into the cache)
-/******/ 	var module = __webpack_module_cache__[moduleId] = {
-/******/ 		// no module.id needed
-/******/ 		// no module.loaded needed
-/******/ 		exports: {}
-/******/ 	};
-/******/ 
-/******/ 	// Execute the module function
-/******/ 	var threw = true;
-/******/ 	try {
-/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nccwpck_require__);
-/******/ 		threw = false;
-/******/ 	} finally {
-/******/ 		if(threw) delete __webpack_module_cache__[moduleId];
-/******/ 	}
-/******/ 
-/******/ 	// Return the exports of the module
-/******/ 	return module.exports;
-/******/ }
-/******/ 
-/************************************************************************/
-/******/ /* webpack/runtime/async module */
-/******/ (() => {
-/******/ 	var webpackQueues = typeof Symbol === "function" ? Symbol("webpack queues") : "__webpack_queues__";
-/******/ 	var webpackExports = typeof Symbol === "function" ? Symbol("webpack exports") : "__webpack_exports__";
-/******/ 	var webpackError = typeof Symbol === "function" ? Symbol("webpack error") : "__webpack_error__";
-/******/ 	var resolveQueue = (queue) => {
-/******/ 		if(queue && queue.d < 1) {
-/******/ 			queue.d = 1;
-/******/ 			queue.forEach((fn) => (fn.r--));
-/******/ 			queue.forEach((fn) => (fn.r-- ? fn.r++ : fn()));
-/******/ 		}
-/******/ 	}
-/******/ 	var wrapDeps = (deps) => (deps.map((dep) => {
-/******/ 		if(dep !== null && typeof dep === "object") {
-/******/ 			if(dep[webpackQueues]) return dep;
-/******/ 			if(dep.then) {
-/******/ 				var queue = [];
-/******/ 				queue.d = 0;
-/******/ 				dep.then((r) => {
-/******/ 					obj[webpackExports] = r;
-/******/ 					resolveQueue(queue);
-/******/ 				}, (e) => {
-/******/ 					obj[webpackError] = e;
-/******/ 					resolveQueue(queue);
-/******/ 				});
-/******/ 				var obj = {};
-/******/ 				obj[webpackQueues] = (fn) => (fn(queue));
-/******/ 				return obj;
-/******/ 			}
-/******/ 		}
-/******/ 		var ret = {};
-/******/ 		ret[webpackQueues] = x => {};
-/******/ 		ret[webpackExports] = dep;
-/******/ 		return ret;
-/******/ 	}));
-/******/ 	__nccwpck_require__.a = (module, body, hasAwait) => {
-/******/ 		var queue;
-/******/ 		hasAwait && ((queue = []).d = -1);
-/******/ 		var depQueues = new Set();
-/******/ 		var exports = module.exports;
-/******/ 		var currentDeps;
-/******/ 		var outerResolve;
-/******/ 		var reject;
-/******/ 		var promise = new Promise((resolve, rej) => {
-/******/ 			reject = rej;
-/******/ 			outerResolve = resolve;
-/******/ 		});
-/******/ 		promise[webpackExports] = exports;
-/******/ 		promise[webpackQueues] = (fn) => (queue && fn(queue), depQueues.forEach(fn), promise["catch"](x => {}));
-/******/ 		module.exports = promise;
-/******/ 		body((deps) => {
-/******/ 			currentDeps = wrapDeps(deps);
-/******/ 			var fn;
-/******/ 			var getResult = () => (currentDeps.map((d) => {
-/******/ 				if(d[webpackError]) throw d[webpackError];
-/******/ 				return d[webpackExports];
-/******/ 			}))
-/******/ 			var promise = new Promise((resolve) => {
-/******/ 				fn = () => (resolve(getResult));
-/******/ 				fn.r = 0;
-/******/ 				var fnQueue = (q) => (q !== queue && !depQueues.has(q) && (depQueues.add(q), q && !q.d && (fn.r++, q.push(fn))));
-/******/ 				currentDeps.map((dep) => (dep[webpackQueues](fnQueue)));
-/******/ 			});
-/******/ 			return fn.r ? promise : getResult();
-/******/ 		}, (err) => ((err ? reject(promise[webpackError] = err) : outerResolve(exports)), resolveQueue(queue)));
-/******/ 		queue && queue.d < 0 && (queue.d = 0);
-/******/ 	};
-/******/ })();
-/******/ 
-/******/ /* webpack/runtime/define property getters */
-/******/ (() => {
-/******/ 	// define getter functions for harmony exports
-/******/ 	__nccwpck_require__.d = (exports, definition) => {
-/******/ 		for(var key in definition) {
-/******/ 			if(__nccwpck_require__.o(definition, key) && !__nccwpck_require__.o(exports, key)) {
-/******/ 				Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 			}
-/******/ 		}
-/******/ 	};
-/******/ })();
-/******/ 
-/******/ /* webpack/runtime/hasOwnProperty shorthand */
-/******/ (() => {
-/******/ 	__nccwpck_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ })();
-/******/ 
-/******/ /* webpack/runtime/compat */
-/******/ 
-/******/ if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = new URL('.', import.meta.url).pathname.slice(import.meta.url.match(/^file:\/\/\/\w:/) ? 1 : 0, -1) + "/";
-/******/ 
-/************************************************************************/
-/******/ 
-/******/ // startup
-/******/ // Load entry module and return exports
-/******/ // This entry module used 'module' so it can't be inlined
-/******/ var __webpack_exports__ = __nccwpck_require__(9407);
-/******/ __webpack_exports__ = await __webpack_exports__;
-/******/ 
+
+async function run() {
+    try {
+        const token = getInput("github-token");
+        const actor = github_context.actor;
+        const octokit = getOctokit(token);
+        const { data: user } = await octokit.rest.users.getByUsername({
+            username: actor,
+        });
+        const { data: events } = await octokit.rest.activity.listPublicEventsForUser({
+            username: actor,
+            per_page: 100,
+        });
+        const prNumber = parseInt(getInput("pr-number"), 10);
+        if (Number.isNaN(prNumber) || prNumber < 1) {
+            info("No valid pull request number was found. Skipping.");
+            return;
+        }
+        // @ts-expect-error type issue
+        const analysis = t(user, events);
+        const body = [
+            `User ${actor} has been on GitHub for ${analysis.profile.age} days`,
+            `The score is: ${analysis.score}`,
+        ].join("\n");
+        await octokit.rest.issues.createComment({
+            owner: github_context.repo.owner,
+            repo: github_context.repo.repo,
+            issue_number: prNumber,
+            body,
+        });
+    }
+    catch (error) {
+        if (error instanceof Error) {
+            setFailed(error.message);
+        }
+        else {
+            setFailed("An unknown error occurred");
+        }
+    }
+}
+if (import.meta.main) {
+    run();
+}
+
