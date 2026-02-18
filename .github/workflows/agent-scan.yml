@@ -1,4 +1,4 @@
-name: Test Agent Scan
+name: Agent Scan
 
 on:
   pull_request:
