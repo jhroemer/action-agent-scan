@@ -1,0 +1,448 @@
+[
+  {
+    "id": "6625932233",
+    "type": "PullRequestEvent",
+    "actor": {
+      "id": 123456789,
+      "login": "rick-deckard",
+      "display_login": "rick-deckard",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rick-deckard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/123456789?"
+    },
+    "repo": {
+      "id": 1158738550,
+      "name": "rick-deckard/some-repo",
+      "url": "https://api.github.com/repos/rick-deckard/some-repo"
+    },
+    "payload": {
+      "action": "opened",
+      "number": 3,
+      "pull_request": {
+        "url": "https://api.github.com/repos/rick-deckard/some-repo/pulls/3",
+        "id": 3291717630,
+        "number": 3,
+        "head": {
+          "ref": "only-run-on-pr-open",
+          "sha": "853430adc9f6ebff298f5858588ace60b85b6034",
+          "repo": {
+            "id": 1158738550,
+            "url": "https://api.github.com/repos/rick-deckard/some-repo",
+            "name": "some-repo"
+          }
+        },
+        "base": {
+          "ref": "main",
+          "sha": "df98d74954490174f233b2f6d68ff612d1881101",
+          "repo": {
+            "id": 1158738550,
+            "url": "https://api.github.com/repos/rick-deckard/some-repo",
+            "name": "some-repo"
+          }
+        }
+      }
+    },
+    "public": true,
+    "created_at": "2026-02-16T21:57:36Z"
+  },
+  {
+    "id": "8507117944",
+    "type": "CreateEvent",
+    "actor": {
+      "id": 123456789,
+      "login": "rick-deckard",
+      "display_login": "rick-deckard",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rick-deckard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/123456789?"
+    },
+    "repo": {
+      "id": 1158738550,
+      "name": "rick-deckard/some-repo",
+      "url": "https://api.github.com/repos/rick-deckard/some-repo"
+    },
+    "payload": {
+      "ref": "only-run-on-pr-open",
+      "ref_type": "branch",
+      "full_ref": "refs/heads/only-run-on-pr-open",
+      "master_branch": "main",
+      "description": "A test repository for mock data.",
+      "pusher_type": "user"
+    },
+    "public": true,
+    "created_at": "2026-02-16T21:57:28Z"
+  },
+  {
+    "id": "8507013805",
+    "type": "PushEvent",
+    "actor": {
+      "id": 123456789,
+      "login": "rick-deckard",
+      "display_login": "rick-deckard",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rick-deckard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/123456789?"
+    },
+    "repo": {
+      "id": 1158738550,
+      "name": "rick-deckard/some-repo",
+      "url": "https://api.github.com/repos/rick-deckard/some-repo"
+    },
+    "payload": {
+      "repository_id": 1158738550,
+      "push_id": 30801979419,
+      "ref": "refs/heads/main",
+      "head": "df98d74954490174f233b2f6d68ff612d1881101",
+      "before": "21660de1c38884e4f6c88d2583b7dc760f739cf4"
+    },
+    "public": true,
+    "created_at": "2026-02-16T21:52:19Z"
+  },
+  {
+    "id": "6625851752",
+    "type": "PullRequestEvent",
+    "actor": {
+      "id": 123456789,
+      "login": "rick-deckard",
+      "display_login": "rick-deckard",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rick-deckard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/123456789?"
+    },
+    "repo": {
+      "id": 1158738550,
+      "name": "rick-deckard/some-repo",
+      "url": "https://api.github.com/repos/rick-deckard/some-repo"
+    },
+    "payload": {
+      "action": "merged",
+      "number": 2,
+      "pull_request": {
+        "url": "https://api.github.com/repos/rick-deckard/some-repo/pulls/2",
+        "id": 3291700353,
+        "number": 2,
+        "head": {
+          "ref": "update-readme-with-usage-example",
+          "sha": "67dca71dc05fb688184643de57ed003e07c6e0e1",
+          "repo": {
+            "id": 1158738550,
+            "url": "https://api.github.com/repos/rick-deckard/some-repo",
+            "name": "some-repo"
+          }
+        },
+        "base": {
+          "ref": "main",
+          "sha": "21660de1c38884e4f6c88d2583b7dc760f739cf4",
+          "repo": {
+            "id": 1158738550,
+            "url": "https://api.github.com/repos/rick-deckard/some-repo",
+            "name": "some-repo"
+          }
+        }
+      }
+    },
+    "public": true,
+    "created_at": "2026-02-16T21:52:18Z"
+  },
+  {
+    "id": "8464425722",
+    "type": "DeleteEvent",
+    "actor": {
+      "id": 123456789,
+      "login": "rick-deckard",
+      "display_login": "rick-deckard",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rick-deckard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/123456789?"
+    },
+    "repo": {
+      "id": 607039348,
+      "name": "rick-deckard/rick-deckard.github.io",
+      "url": "https://api.github.com/repos/rick-deckard/rick-deckard.github.io"
+    },
+    "payload": {
+      "ref": "dependabot/github_actions/some-action-1.4.4",
+      "ref_type": "branch",
+      "full_ref": "refs/heads/dependabot/github_actions/some-action-1.4.4",
+      "pusher_type": "user"
+    },
+    "public": true,
+    "created_at": "2026-02-15T10:58:29Z"
+  },
+  {
+    "id": "8464425489",
+    "type": "PushEvent",
+    "actor": {
+      "id": 123456789,
+      "login": "rick-deckard",
+      "display_login": "rick-deckard",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rick-deckard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/123456789?"
+    },
+    "repo": {
+      "id": 607039348,
+      "name": "rick-deckard/rick-deckard.github.io",
+      "url": "https://api.github.com/repos/rick-deckard/rick-deckard.github.io"
+    },
+    "payload": {
+      "repository_id": 607039348,
+      "push_id": 30759377679,
+      "ref": "refs/heads/main",
+      "head": "27bd7c2d066793bd0e3b00b8ae5f2b3a3c60c568",
+      "before": "0058af642325d46c7feb3a0fd598b6f198302e89"
+    },
+    "public": true,
+    "created_at": "2026-02-15T10:58:28Z"
+  },
+  {
+    "id": "6625677939",
+    "type": "PublicEvent",
+    "actor": {
+      "id": 123456789,
+      "login": "rick-deckard",
+      "display_login": "rick-deckard",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rick-deckard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/123456789?"
+    },
+    "repo": {
+      "id": 1158738550,
+      "name": "rick-deckard/some-repo",
+      "url": "https://api.github.com/repos/rick-deckard/some-repo"
+    },
+    "payload": {},
+    "public": true,
+    "created_at": "2026-02-15T20:56:30Z"
+  },
+  {
+    "id": "6624503656",
+    "type": "WatchEvent",
+    "actor": {
+      "id": 123456789,
+      "login": "rick-deckard",
+      "display_login": "rick-deckard",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rick-deckard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/123456789?"
+    },
+    "repo": {
+      "id": 1159465466,
+      "name": "some-org/some-library",
+      "url": "https://api.github.com/repos/some-org/some-library"
+    },
+    "payload": {
+      "action": "started"
+    },
+    "public": true,
+    "created_at": "2026-02-16T20:30:24Z"
+  },
+  {
+    "id": "6347570100",
+    "type": "IssueCommentEvent",
+    "actor": {
+      "id": 123456789,
+      "login": "rick-deckard",
+      "display_login": "rick-deckard",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rick-deckard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/123456789?"
+    },
+    "repo": {
+      "id": 1139936006,
+      "name": "another-org/another-project",
+      "url": "https://api.github.com/repos/another-org/another-project"
+    },
+    "payload": {
+      "action": "created",
+      "issue": {
+        "url": "https://api.github.com/repos/another-org/another-project/issues/984",
+        "repository_url": "https://api.github.com/repos/another-org/another-project",
+        "labels_url": "https://api.github.com/repos/another-org/another-project/issues/984/labels{/name}",
+        "comments_url": "https://api.github.com/repos/another-org/another-project/issues/984/comments",
+        "events_url": "https://api.github.com/repos/another-org/another-project/issues/984/events",
+        "html_url": "https://github.com/another-org/another-project/pull/984",
+        "id": 3899444069,
+        "node_id": "PR_kwDOQ_ILBs7Bnbmj",
+        "number": 984,
+        "title": "fix: hide likes when data is being fetched",
+        "user": {
+          "login": "some-user",
+          "id": 2974920,
+          "node_id": "MDQ6VXNlcjI5NzQ5MjA=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/2974920?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/some-user",
+          "html_url": "https://github.com/some-user",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "labels": [],
+        "state": "closed",
+        "locked": false,
+        "assignee": null,
+        "assignees": [],
+        "milestone": null,
+        "comments": 7,
+        "created_at": "2026-02-05T03:47:07Z",
+        "updated_at": "2026-02-11T04:09:49Z",
+        "closed_at": "2026-02-11T04:01:39Z",
+        "type": null,
+        "active_lock_reason": null,
+        "draft": false,
+        "pull_request": {
+          "url": "https://api.github.com/repos/another-org/another-project/pulls/984",
+          "html_url": "https://github.com/another-org/another-project/pull/984",
+          "diff_url": "https://github.com/another-org/another-project/pull/984.diff",
+          "patch_url": "https://github.com/another-org/another-project/pull/984.patch",
+          "merged_at": null
+        },
+        "body": "the likes flashes a 0 briefly before showing the actual value.",
+        "reactions": {
+          "url": "https://api.github.com/repos/another-org/another-project/issues/984/reactions",
+          "total_count": 1,
+          "+1": 1,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "timeline_url": "https://api.github.com/repos/another-org/another-project/issues/984/timeline",
+        "performed_via_github_app": null,
+        "state_reason": null
+      },
+      "comment": {
+        "url": "https://api.github.com/repos/another-org/another-project/issues/comments/3855030660",
+        "html_url": "https://github.com/another-org/another-project/pull/984#issuecomment-3855030660",
+        "issue_url": "https://api.github.com/repos/another-org/another-project/issues/984",
+        "id": 3855030660,
+        "node_id": "IC_kwDOQ_ILBs7lxxmE",
+        "user": {
+          "login": "rick-deckard",
+          "id": 123456789,
+          "node_id": "MDQ6VXNlcjEyMzQ1Njc4OQ==",
+          "avatar_url": "https://avatars.githubusercontent.com/u/123456789?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/rick-deckard",
+          "html_url": "https://github.com/rick-deckard",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "created_at": "2026-02-05T17:15:11Z",
+        "updated_at": "2026-02-05T17:15:11Z",
+        "body": "I agree, a simple loading state would make the effect less jarring.",
+        "pin": null,
+        "reactions": {
+          "url": "https://api.github.com/repos/another-org/another-project/issues/comments/3855030660/reactions",
+          "total_count": 0,
+          "+1": 0,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "performed_via_github_app": null
+      }
+    },
+    "public": true,
+    "created_at": "2026-02-05T17:15:11Z",
+    "org": {
+      "id": 257109910,
+      "login": "another-org",
+      "gravatar_id": "",
+      "url": "https://api.github.com/orgs/another-org",
+      "avatar_url": "https://avatars.githubusercontent.com/u/257109910?"
+    }
+  },
+  {
+    "id": "6272497870",
+    "type": "PullRequestReviewEvent",
+    "actor": {
+      "id": 123456789,
+      "login": "rick-deckard",
+      "display_login": "rick-deckard",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/rick-deckard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/123456789?"
+    },
+    "repo": {
+      "id": 1139936006,
+      "name": "another-org/another-project",
+      "url": "https://api.github.com/repos/another-org/another-project"
+    },
+    "payload": {
+      "review": {
+        "id": 3744822218,
+        "node_id": "PRR_kwDOQ_ILBs7fNXPK",
+        "user": {
+          "login": "rick-deckard",
+          "id": 123456789,
+          "node_id": "MDQ6VXNlcjEyMzQ1Njc4OQ==",
+          "avatar_url": "https://avatars.githubusercontent.com/u/123456789?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/rick-deckard",
+          "html_url": "https://github.com/rick-deckard",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": null,
+        "commit_id": "6611b51d190b483d5d998e8e8a02fa05393c41cf",
+        "submitted_at": "2026-02-03T11:50:10Z",
+        "state": "commented",
+        "html_url": "https://github.com/another-org/another-project/pull/828#pullrequestreview-3744822218",
+        "pull_request_url": "https://api.github.com/repos/another-org/another-project/pulls/828",
+        "_links": {
+          "html": {
+            "href": "https://github.com/another-org/another-project/pull/828#pullrequestreview-3744822218"
+          },
+          "pull_request": {
+            "href": "https://api.github.com/repos/another-org/another-project/pulls/828"
+          }
+        },
+        "updated_at": "2026-02-03T11:50:10Z"
+      },
+      "pull_request": {
+        "url": "https://api.github.com/repos/another-org/another-project/pulls/828",
+        "id": 3240649171,
+        "number": 828,
+        "head": {
+          "ref": "test/fixtures",
+          "sha": "404504cea6f30b627ff2112e819e7f6e13370a40",
+          "repo": {
+            "id": 1139936006,
+            "url": "https://api.github.com/repos/another-org/another-project",
+            "name": "another-project"
+          }
+        },
+        "base": {
+          "ref": "main",
+          "sha": "07ce0e403514557fe7e8365ffbb7f4fe99c444a8",
+          "repo": {
+            "id": 1139936006,
+            "url": "https://api.github.com/repos/another-org/another-project",
+            "name": "another-project"
+          }
+        }
+      },
+      "action": "created"
+    },
+    "public": true,
+    "created_at": "2026-02-03T11:50:11Z",
+    "org": {
+      "id": 257109910,
+      "login": "another-org",
+      "gravatar_id": "",
+      "url": "https://api.github.com/orgs/another-org",
+      "avatar_url": "https://avatars.githubusercontent.com/u/257109910?"
+    }
+  }
+]
