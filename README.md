@@ -27,3 +27,7 @@ jobs:
       - name: Agent Scan
         uses: jhroemer/action-agent-scan@v0.0.1
 ```
+
+## License
+
+MIT
