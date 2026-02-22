@@ -22,9 +22,9 @@ describe("formatComment", () => {
     expect(output).toMatchInlineSnapshot(`
       "## Agent Scan — @rick-deckard
 
-      **Score:** 100 · **Human**
+      **Score:** 100 · 🟢 **Human**
 
-      | | |
+      | Metric | Value |
       |---|---|
       | Followers | 9 |
       | Repos | 12 |
@@ -51,9 +51,9 @@ describe("formatComment", () => {
     expect(output).toMatchInlineSnapshot(`
       "## Agent Scan — @leon-kowalski
 
-      **Score:** 40 · **Likely Bot**
+      **Score:** 40 · 🔴 **Likely Bot**
 
-      | | |
+      | Metric | Value |
       |---|---|
       | Followers | 0 |
       | Repos | 1 |
