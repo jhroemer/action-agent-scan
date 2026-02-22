@@ -9,19 +9,26 @@ const classificationLabels = {
   likely_bot: "Likely Bot",
 } as const satisfies Record<Classification, string>;
 
+const classificationDot = {
+  human: "🟢",
+  suspicious: "🟡",
+  likely_bot: "🔴",
+} as const satisfies Record<Classification, string>;
+
 export function formatComment(
   actor: string,
   analysis: IdentifyReplicantResult,
   eventCount: number,
 ): string {
   const label = classificationLabels[analysis.classification];
+  const dot = classificationDot[analysis.classification];
   const lines: string[] = [];
 
   lines.push(`## Agent Scan — @${actor}`);
   lines.push("");
-  lines.push(`**Score:** ${analysis.score} · **${label}**`);
+  lines.push(`**Score:** ${analysis.score} · ${dot} **${label}**`);
   lines.push("");
-  lines.push("| | |");
+  lines.push("| Metric | Value |");
   lines.push("|---|---|");
   lines.push(`| Followers | ${analysis.profile.followers} |`);
   lines.push(`| Repos | ${analysis.profile.repos} |`);
