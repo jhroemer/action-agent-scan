@@ -27,7 +27,6 @@ async function run(): Promise<void> {
       return;
     }
 
-    // @ts-expect-error type issue
     const analysis = identifyReplicant(user, events);
 
     const body = formatComment(actor, analysis, events.length);
