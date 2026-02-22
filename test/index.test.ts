@@ -51,7 +51,7 @@ describe("formatComment", () => {
     expect(output).toMatchInlineSnapshot(`
       "## Agent Scan — @leon-kowalski
 
-      **Score:** 45 · **Likely Bot**
+      **Score:** 40 · **Likely Bot**
 
       | | |
       |---|---|
@@ -59,12 +59,12 @@ describe("formatComment", () => {
       | Repos | 1 |
       | Account age | 15 days |
 
-      Based on 10 recent events
+      Based on 15 recent events
 
       ### Notable patterns
 
       - **Recently created** — Account is 15 days old
-      - **Unusual follow ratio** — Following 55 but only 0 followers
+      - **Multiple forks** — 5 repos forked recently
       - **Mostly external activity** — 100% of activity on other people's repos"
     `);
   });

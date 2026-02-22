@@ -21,7 +21,7 @@
   "dependencies": {
     "@actions/core": "^3.0.0",
     "@actions/github": "^9.0.0",
-    "voight-kampff-test": "0.0.1"
+    "voight-kampff-test": "1.1.0"
   },
   "devDependencies": {
     "@types/node": "25.2.3",
