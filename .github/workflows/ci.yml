@@ -26,6 +26,6 @@ jobs:
         run: node --run test
 
   check-dist:
-    uses: actions/reusable-workflows/.github/workflows/check-dist.yml@main
+    uses: actions/reusable-workflows/.github/workflows/check-dist.yml@1e97bade5ca12552a4d14d19ef769e9667ad73c4 # main 2025-12-09
     with:
       node-version: "24.x"
