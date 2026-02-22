@@ -1,6 +1,6 @@
 {
   "name": "action-agent-scan",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A GitHub action that helps detecting if a contributor is an AI agent.",
   "keywords": [
     "action",
