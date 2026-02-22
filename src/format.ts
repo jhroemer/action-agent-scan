@@ -1,5 +1,6 @@
-import type { IdentifyReplicantResult } from "voight-kampff-test";
+import type { identifyReplicant } from "voight-kampff-test";
 
+type IdentifyReplicantResult = ReturnType<typeof identifyReplicant>;
 type Classification = IdentifyReplicantResult["classification"];
 
 const classificationLabels = {
