@@ -25,7 +25,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Agent Scan
-        uses: jhroemer/action-agent-scan@v0.0.1
+        uses: jhroemer/action-agent-scan@v0.0.2
 ```
 
 ## License
