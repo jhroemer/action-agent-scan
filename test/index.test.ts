@@ -17,7 +17,8 @@ describe("formatComment", () => {
 
     // @ts-expect-error type issue
     const analysis = identifyReplicant(userMock, eventsMock);
-    const output = formatComment("rick-deckard", analysis, eventsMock.length);
+    // @ts-expect-error type issue
+    const output = formatComment("rick-deckard", analysis, eventsMock.length, userMock);
 
     expect(output).toMatchInlineSnapshot(`
       "## Agent Scan — @rick-deckard
@@ -25,18 +26,6 @@ describe("formatComment", () => {
       **Score:** 100 — Organic activity
 
       > No automation signals detected in the analyzed events.
-
-      ### Profile Information
-
-      | Metric | Value |
-      |---|---|
-      | Followers | 9 |
-      | Public Repos | 12 |
-      | Account Age | 3264 days |
-
-      ### Analysis Details
-
-      Analyzed from the last **10 public events**
       "
     `);
   });
@@ -47,10 +36,12 @@ describe("formatComment", () => {
 
     // @ts-expect-error type issue
     const analysis = identifyReplicant(replicantUserMock, replicantEventsMock);
+    // @ts-expect-error type issue
     const output = formatComment(
       "leon-kowalski",
       analysis,
       replicantEventsMock.length,
+      replicantUserMock,
     );
 
     expect(analysis.classification).toBe("likely_bot");
@@ -61,18 +52,6 @@ describe("formatComment", () => {
       **Score:** 40 — Automation signals
 
       > Activity patterns show signs of automation.
-
-      ### Profile Information
-
-      | Metric | Value |
-      |---|---|
-      | Followers | 0 |
-      | Public Repos | 1 |
-      | Account Age | 15 days |
-
-      ### Analysis Details
-
-      Analyzed from the last **15 public events**
 
       ### Activity Signals
 
@@ -102,10 +81,12 @@ describe("formatComment", () => {
       createdAt: "2026-02-01T10:00:00Z",
     };
 
+    // @ts-expect-error type issue
     const output = formatComment(
       "leon-kowalski",
       analysis,
       replicantEventsMock.length,
+      replicantUserMock,
       verifiedAutomation,
     );
 
@@ -123,18 +104,6 @@ describe("formatComment", () => {
       **Score:** 40 — Automation signals
 
       > Activity patterns show signs of automation.
-
-      ### Profile Information
-
-      | Metric | Value |
-      |---|---|
-      | Followers | 0 |
-      | Public Repos | 1 |
-      | Account Age | 15 days |
-
-      ### Analysis Details
-
-      Analyzed from the last **15 public events**
 
       ### Activity Signals
 

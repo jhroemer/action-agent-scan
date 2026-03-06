@@ -54,6 +54,7 @@ async function run(): Promise<void> {
       actor,
       analysis,
       events.length,
+      user,
       verifiedAutomation,
     );
 

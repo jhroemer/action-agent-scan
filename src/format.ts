@@ -26,10 +26,17 @@ const classificationConfig = {
   },
 } as const satisfies Record<Classification, object>;
 
+type User = {
+  followers: number;
+  public_repos: number;
+  created_at: string;
+};
+
 export function formatComment(
   actor: string,
   analysis: IdentifyReplicantResult,
   eventCount: number,
+  user: User,
   verifiedAutomation?: VerifiedAutomation,
 ): string {
   const config = classificationConfig[analysis.classification];
