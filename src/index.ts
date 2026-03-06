@@ -1,7 +1,7 @@
 import * as core from "@actions/core";
 import * as github from "@actions/github";
 import { identifyReplicant } from "voight-kampff-test";
-import { formatComment } from "./format";
+import { formatComment, type VerifiedAutomation } from "./format";
 
 async function run(): Promise<void> {
   try {
@@ -27,9 +27,35 @@ async function run(): Promise<void> {
       return;
     }
 
+    // Fetch verified automations list
+    let verifiedAutomation: VerifiedAutomation | undefined;
+    try {
+      const { data: verifiedList } = await octokit.rest.repos.getContent({
+        owner: "matteogabriele",
+        repo: "agentscan",
+        path: "data/verified-automations-list.json",
+      });
+
+      if ("content" in verifiedList) {
+        const content = Buffer.from(verifiedList.content, "base64").toString(
+          "utf-8",
+        );
+        const verified = JSON.parse(content) as VerifiedAutomation[];
+        verifiedAutomation = verified.find((v) => v.username === actor);
+      }
+    } catch (err) {
+      core.debug(`Failed to fetch verified automations: ${err}`);
+      // Continue without verified automation data if fetch fails
+    }
+
     const analysis = identifyReplicant(user, events);
 
-    const body = formatComment(actor, analysis, events.length);
+    const body = formatComment(
+      actor,
+      analysis,
+      events.length,
+      verifiedAutomation,
+    );
 
     await octokit.rest.issues.createComment({
       owner: github.context.repo.owner,
