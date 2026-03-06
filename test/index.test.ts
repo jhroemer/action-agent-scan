@@ -17,8 +17,12 @@ describe("formatComment", () => {
 
     // @ts-expect-error type issue
     const analysis = identifyReplicant(userMock, eventsMock);
-    // @ts-expect-error type issue
-    const output = formatComment("rick-deckard", analysis, eventsMock.length, userMock);
+    const output = formatComment(
+      "rick-deckard",
+      analysis,
+      eventsMock.length,
+      userMock,
+    );
 
     expect(output).toMatchInlineSnapshot(`
       "## Agent Scan — @rick-deckard
@@ -36,7 +40,6 @@ describe("formatComment", () => {
 
     // @ts-expect-error type issue
     const analysis = identifyReplicant(replicantUserMock, replicantEventsMock);
-    // @ts-expect-error type issue
     const output = formatComment(
       "leon-kowalski",
       analysis,
@@ -81,7 +84,6 @@ describe("formatComment", () => {
       createdAt: "2026-02-01T10:00:00Z",
     };
 
-    // @ts-expect-error type issue
     const output = formatComment(
       "leon-kowalski",
       analysis,
